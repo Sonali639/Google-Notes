@@ -1,0 +1,26 @@
+
+{
+    "data": [
+      {
+        "title": "Python",
+        "desc": "Python is High-level, interpreted, readable, versatile, object-oriented, extensive library."
+      },
+      {
+        "title": "Angular",
+        "desc": "Angular is a TypeScript-based open-source framework for building web applications."
+      },
+      {
+        "title": "React",
+        "desc": "React is a JavaScript library for building user  efficient interfaces efficiently."
+      },
+      {
+        "title": "Framework",
+        "desc": "Framework is a pre-built software providing structure for developing applications."
+      },
+      {
+        "title": "Library",
+        "desc": "Library is a collection of pre-written code for specific functionalities."
+      }
+    ]
+  }
+  
