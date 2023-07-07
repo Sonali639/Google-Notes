@@ -1,3 +1,14 @@
 .outer-box{
     border: 1px solid rgb(173, 173, 173);
 }
+
+.my-masonry-grid {
+    display: flex;
+    margin-left: -30px; /* Adjust as needed */
+    width: auto;
+  }
+  
+  .my-masonry-grid_column {
+    padding-left: 30px; /* Adjust as needed */
+    background-clip: padding-box;
+  }
