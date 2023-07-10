@@ -4,7 +4,7 @@ import "./style.css";
 import data from "./Notes-detal.json";
 import Masonry from "react-masonry-css";
 
-function Note() {
+export function Note({ notes }) {
   const colors = [
     "rgb(255, 242, 192)", // Red
     "rgb(209, 209, 238)", // Blue
@@ -19,67 +19,8 @@ function Note() {
     700: 1,
   };
 
-  const [notes, setNotes] = useState([]);
-  const [newNote, setNewNote] = useState({ title: '', desc: '' });
-
-  const handleInputChange = (e) => {
-    setNewNote({
-      ...newNote,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleAddNote = () => {
-    if (newNote.title.trim() !== '' && newNote.desc.trim() !== '') {
-        setNotes([...notes, newNote]);
-        setNewNote({ title: '', desc: '' });
-    }
-}
-
   return (
     <>
-      {/* <div className="row ">
-          {data.data.map((item, index) => (
-            <>
-              <div className="col-md-3"  key={item.id}>
-              <Card className="mt-4" key={item.id}>
-                <Card.Body className="outer-box p-3"  style={{ backgroundColor: colors[index % colors.length] }}>
-                  <Card.Title>{item.title}</Card.Title>
-                  <hr />
-                  <Card.Text>{item.desc} </Card.Text>
-                </Card.Body>
-                </Card>
-              </div>
-            </>
-          ))}
-        </div> */}
-
-   <div>
-   <input
-        type="text"
-        name="title"
-        value={newNote.title}
-        onChange={handleInputChange}
-        placeholder="Enter title"
-      />
-      <input
-        type="text"
-        name="desc"
-        value={newNote.desc}
-        onChange={handleInputChange}
-        placeholder="Enter description"
-      />
-      <button onClick={handleAddNote}>Add Note</button>
-      <ul>
-        {notes.map((note, index) => (
-          <li key={index}>
-            <h3>{note.title}</h3>
-            <p>{note.desc}</p>
-          </li>
-        ))}
-      </ul>
-   </div>
-
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
@@ -87,28 +28,75 @@ function Note() {
       >
         {/* Your Masonry items go here */}
         {data.data.map((item, index) => (
-          <>
-            <div>
-              <Card className="mt-4" key={item.id}>
-                <Card.Body
-                  className="outer-box p-3"
-                  style={{ backgroundColor: colors[index % colors.length] }}
-                >
-                  <Card.Title className="fw-semibold"> {item.title}</Card.Title>
-                  <hr />
-                  <Card.Text>{item.desc} </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-
-            {/* <div>Item 2</div>
-      <div>Item 3</div> */}
-          </>
+          <div key={item.id}>
+            <Card className="mt-4">
+              <Card.Body
+                className="outer-box p-3"
+                style={{ backgroundColor: colors[index % colors.length] }}
+              >
+                <Card.Title className="fw-semibold">{item.title}</Card.Title>
+                <hr />
+                <Card.Text>{item.desc}</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
         ))}
-        {/* ... */}
+        {/* Render additional notes */}
+        {notes.map((note, index) => (
+          <div key={index}>
+            <Card className="mt-4">
+              <Card.Body
+                className="outer-box p-3"
+                style={{ backgroundColor: colors[index % colors.length] }}
+              >
+                <Card.Title className="fw-semibold">{note.title}</Card.Title>
+                <hr />
+                <Card.Text>{note.desc}</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
       </Masonry>
     </>
   );
 }
 
-export default Note;
+export function AddNote({ onAddNote }) {
+  const [newNote, setNewNote] = useState({ title: "", desc: "" });
+
+  const handleInputChange = (e) => {
+    setNewNote({
+      ...newNote,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleAddNote = () => {
+    if (newNote.title.trim() !== "" && newNote.desc.trim() !== "") {
+      onAddNote(newNote);
+      setNewNote({ title: "", desc: "" });
+    }
+  };
+
+  return (
+    <>
+      <div>
+        <input
+          type="text"
+          name="title"
+          value={newNote.title}
+          onChange={handleInputChange}
+          placeholder="Enter title"
+        />
+        <input
+          type="text"
+          name="desc"
+          value={newNote.desc}
+          onChange={handleInputChange}
+          placeholder="Enter description"
+        />
+        <button onClick={handleAddNote}>Add Note</button>
+      </div>
+    </>
+  );
+}
