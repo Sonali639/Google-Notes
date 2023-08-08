@@ -1,3 +1,6 @@
+
+
+
 .outer-box{
     border: 1px solid rgb(173, 173, 173);
 }
@@ -11,4 +14,55 @@
   .my-masonry-grid_column {
     padding-left: 30px; /* Adjust as needed */
     background-clip: padding-box;
+  }
+
+  .input-border-0{
+    border: 1px solid rgb(194, 194, 194);
+   border-radius: 0%;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   padding-left: 8px;
+   margin-left: 8px;
+  }
+
+  .btn-del{
+    background-color: #ffffff;
+    color: #670101;
+    float: right;
+    border: none;
+    border-radius: 50%;
+  }
+  .btn-del:hover{
+    background-color: #680b0b;
+    color: #ffffff;
+    float: right;
+    border: none;
+    border-radius: 50%;
+  }
+  .btn-addnote{
+    background-color: #144424;
+    color: #fff;
+    border: none;
+    border-radius: 0%;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 8px;
+  }
+
+  .btn-del-all{
+    background-color: #861b1b;
+    color: #ffffff;
+    border: none;
+    border-radius: 0%;
+  }
+
+  .stroke-text {
+    -webkit-text-stroke: 1px #000; /* For WebKit browsers like Chrome and Safari */
+    text-stroke: 1px #000; /* For other browsers */
+    -webkit-text-fill-color: transparent; /* For WebKit browsers */
+    text-fill-color: transparent; /* For other browsers */
+  }
+
+  .empty-msg{
+    color: grey;
   }

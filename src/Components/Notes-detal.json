@@ -2,39 +2,47 @@
 {
     "data": [
       {
+        "id": "1",
         "title": "Python",
         "desc": "Python is High-level, interpreted, readable, versatile, object-oriented, extensive library."
       },
       {
+        "id": "2",
         "title": "Angular",
         "desc": "Angular is a TypeScript-based open-source framework for building web applications with a modular and component-based architecture."
       },
       {
+        "id": "3",
         "title": "React",
         "desc": "React is a JavaScript library for building user  efficient interfaces efficiently."
       },
       {
+        "id": "4",
         "title": "TypeScript",
         "desc": "TypeScript is a statically-typed superset of JavaScript that adds optional types, enhancing code quality and tooling support for developers."
       },
       {
+        "id": "5",
         "title": "Bootstrap",
         "desc": "Bootstrap is a popular front-end framework that provides a collection of pre-built CSS and JavaScript components and utilities. It simplifies web development by offering responsive layouts, styling, and interactive elements."
       },
       {
+        "id": "6",
         "title": "Library",
         "desc": "Library is a collection of pre-written code for specific functionalities."
       },
      
       {
+        "id": "7",
         "title": "Framework",
         "desc": "Framework is a pre-built software providing structure for developing applications."
       },
       {
+        "id": "8",
         "title": "Framework",
         "desc": "Framework is a pre-built software providing structure for developing applications."
       },
-      {
+      { "id": "9",
         "title": "Framework",
         "desc": "Framework is a pre-built software providing structure for developing applications."
       }

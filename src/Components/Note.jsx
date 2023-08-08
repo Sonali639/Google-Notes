@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import "./style.css";
-import data from "./Notes-detal.json";
 import Masonry from "react-masonry-css";
+import Button from 'react-bootstrap/Button';
+import data from "./Notes-detal.json"
 
-export function Note({ notes }) {
+export  function Note({ notes , onDeleteNote  }) {
   const colors = [
     "rgb(255, 242, 192)", // Red
     "rgb(209, 209, 238)", // Blue
@@ -19,36 +20,27 @@ export function Note({ notes }) {
     700: 1,
   };
 
+  
+
+
   return (
     <>
+      
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
         {/* Your Masonry items go here */}
-        {data.data.map((item, index) => (
-          <div key={item.id}>
-            <Card className="mt-4">
-              <Card.Body
-                className="outer-box p-3"
-                style={{ backgroundColor: colors[index % colors.length] }}
-              >
-                <Card.Title className="fw-semibold">{item.title}</Card.Title>
-                <hr />
-                <Card.Text>{item.desc}</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
+      
         {/* Render additional notes */}
         {notes.map((note, index) => (
           <div key={index}>
             <Card className="mt-4">
               <Card.Body
                 className="outer-box p-3"
-                style={{ backgroundColor: colors[index % colors.length] }}
-              >
+                style={{ backgroundColor: colors[index % colors.length] }}>
+                  <Button  className="btn-del " onClick={() => onDeleteNote(index)} ><i class="fa fa-trash-o"></i></Button>
                 <Card.Title className="fw-semibold">{note.title}</Card.Title>
                 <hr />
                 <Card.Text>{note.desc}</Card.Text>
@@ -78,25 +70,31 @@ export function AddNote({ onAddNote }) {
     }
   };
 
+
+
+  
+
   return (
     <>
+    <div className="text-center pt-3">
       <div>
-        <input
+        <input className="input-border-0"
           type="text"
           name="title"
           value={newNote.title}
           onChange={handleInputChange}
           placeholder="Enter title"
         />
-        <input
+        <input  className="input-border-0 "
           type="text"
           name="desc"
           value={newNote.desc}
           onChange={handleInputChange}
           placeholder="Enter description"
         />
-        <button onClick={handleAddNote}>Add Note</button>
+        <button onClick={handleAddNote} className="btn-addnote py-2  px-3">Add Note</button>
       </div>
+    </div>
     </>
   );
 }
