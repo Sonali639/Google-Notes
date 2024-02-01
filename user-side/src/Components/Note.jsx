@@ -54,7 +54,7 @@ export  function Note({ notes , onDeleteNote  }) {
 }
 
 export function AddNote({ onAddNote }) {
-  const [newNote, setNewNote] = useState({ title: "", desc: "" });
+  const [newNote, setNewNote] = useState({ title: "", content: "" });
 
   const handleInputChange = (e) => {
     setNewNote({
@@ -64,9 +64,9 @@ export function AddNote({ onAddNote }) {
   };
 
   const handleAddNote = () => {
-    if (newNote.title.trim() !== "" && newNote.desc.trim() !== "") {
+    if (newNote.title.trim() !== "" && newNote.content.trim() !== "") {
       onAddNote(newNote);
-      setNewNote({ title: "", desc: "" });
+      setNewNote({ title: "", content: "" });
     }
   };
 
@@ -87,8 +87,8 @@ export function AddNote({ onAddNote }) {
         />
         <input  className="input-border-0 "
           type="text"
-          name="desc"
-          value={newNote.desc}
+          name="content"
+          value={newNote.content}
           onChange={handleInputChange}
           placeholder="Enter description"
         />

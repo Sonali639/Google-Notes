@@ -29,6 +29,19 @@ const notesController = {
 
     deleteNote: async (req, res) => {
         // Implement delete logic here
+        const noteId = req.params.id; // Assuming you have the note ID in the URL parameters
+
+        try {
+            const deletedNote = await Note.deleteOne({ _id: noteId });
+
+            if (deletedNote.deletedCount === 0) {
+                return res.status(404).json({ error: 'Note not found' });
+            }
+
+            res.json('Note deleted!');
+        } catch (error) {
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
     },
 };
 
